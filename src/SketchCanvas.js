@@ -35,6 +35,7 @@ class SketchCanvas extends React.Component {
     onShapeSelectionChanged: PropTypes.func,
     shapeConfiguration: PropTypes.shape({ shapeBorderColor: PropTypes.string, shapeBorderStyle: PropTypes.string, shapeBorderStrokeWidth: PropTypes.number, shapeColor: PropTypes.string, shapeStrokeWidth: PropTypes.number }),
     user: PropTypes.string,
+    scale: PropTypes.number,
 
     touchEnabled: PropTypes.bool,
 
@@ -68,6 +69,7 @@ class SketchCanvas extends React.Component {
     onShapeSelectionChanged: () => { },
     shapeConfiguration: { shapeBorderColor: 'transparent', shapeBorderStyle: 'Dashed', shapeBorderStrokeWidth: 1, shapeColor: '#000000', shapeStrokeWidth: 3 },
     user: null,
+    scale: 1,
 
     touchEnabled: true,
 
@@ -222,14 +224,12 @@ class SketchCanvas extends React.Component {
         if (!this.props.touchEnabled) return
         if (Math.abs(gestureState.dx) < 2.5 || Math.abs(gestureState.dy) < 2.5) return
         if (this._path) {
-          UIManager.dispatchViewManagerCommand(this._handle, UIManager.RNSketchCanvas.Commands.addPoint,
-            [
-              parseFloat((gestureState.moveX - this._offset.x).toFixed(2) * this._screenScale),
-              parseFloat((gestureState.moveY - this._offset.y).toFixed(2) * this._screenScale),
-              true
-            ]
-          )
-          const x = parseFloat((gestureState.moveX - this._offset.x).toFixed(2)), y = parseFloat((gestureState.moveY - this._offset.y).toFixed(2))
+          const x = parseFloat((gestureState.x0 + gestureState.dx / this.props.scale - this._offset.x).toFixed(2)),
+                y = parseFloat((gestureState.y0 + gestureState.dy / this.props.scale - this._offset.y).toFixed(2))
+          UIManager.dispatchViewManagerCommand(this._handle, UIManager.RNSketchCanvas.Commands.addPoint, [
+            parseFloat(x * this._screenScale),
+            parseFloat(y * this._screenScale)
+          ])
           this._path.data.push(`${x},${y}`)
           this.props.onStrokeChanged(x, y)
         }
