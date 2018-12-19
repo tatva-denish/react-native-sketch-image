@@ -225,10 +225,11 @@ class SketchCanvas extends React.Component {
         if (Math.abs(gestureState.dx) < 2.5 || Math.abs(gestureState.dy) < 2.5) return
         if (this._path) {
           const x = parseFloat((gestureState.x0 + gestureState.dx / this.props.scale - this._offset.x).toFixed(2)),
-                y = parseFloat((gestureState.y0 + gestureState.dy / this.props.scale - this._offset.y).toFixed(2))
+            y = parseFloat((gestureState.y0 + gestureState.dy / this.props.scale - this._offset.y).toFixed(2))
           UIManager.dispatchViewManagerCommand(this._handle, UIManager.RNSketchCanvas.Commands.addPoint, [
             parseFloat(x * this._screenScale),
-            parseFloat(y * this._screenScale)
+            parseFloat(y * this._screenScale),
+            true
           ])
           this._path.data.push(`${x},${y}`)
           this.props.onStrokeChanged(x, y)
