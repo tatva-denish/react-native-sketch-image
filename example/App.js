@@ -154,7 +154,7 @@ export default class example extends Component {
               saveComponent={<View style={styles.functionButton}><Text style={{ color: 'white' }}>Save</Text></View>}
               savePreference={() => {
                 return {
-                  folder: "RNSketchCanvas",
+                  folder: "RNImageEditor",
                   filename: String(Math.ceil(Math.random() * 100000000)),
                   transparent: false,
                   imageType: "png"
@@ -199,7 +199,7 @@ export default class example extends Component {
               </View>
               <ImageEditor
                 localSourceImage={{ filename: 'whale.png', directory: ImageEditor.MAIN_BUNDLE, mode: 'AspectFit' }}
-                // localSourceImage={{ filename: 'bulb.png', directory: RNSketchCanvas.MAIN_BUNDLE }}
+                // localSourceImage={{ filename: 'bulb.png', directory: RNImageEditor.MAIN_BUNDLE }}
                 ref={ref => this.canvas = ref}
                 style={{ flex: 1 }}
                 strokeColor={this.state.color}
@@ -292,7 +292,7 @@ export default class example extends Component {
               saveComponent={<View style={styles.functionButton}><Text style={{ color: 'white' }}>Save</Text></View>}
               savePreference={() => {
                 return {
-                  folder: 'RNSketchCanvas',
+                  folder: 'RNImageEditor',
                   filename: String(Math.ceil(Math.random() * 100000000)),
                   transparent: true,
                   imageType: 'jpg'
@@ -346,7 +346,7 @@ export default class example extends Component {
               saveComponent={<View style={styles.functionButton}><Text style={{ color: 'white' }}>Save</Text></View>}
               savePreference={() => {
                 return {
-                  folder: 'RNSketchCanvas',
+                  folder: 'RNImageEditor',
                   filename: String(Math.ceil(Math.random() * 100000000)),
                   transparent: true,
                   imageType: 'jpg'
@@ -431,7 +431,7 @@ export default class example extends Component {
                 saveComponent={<View style={styles.functionButton}><Text style={{ color: 'white' }}>Save</Text></View>}
                 savePreference={() => {
                   return {
-                    folder: 'RNSketchCanvas',
+                    folder: 'RNImageEditor',
                     filename: String(Math.ceil(Math.random() * 100000000)),
                     transparent: false,
                     imageType: 'png'
@@ -452,7 +452,7 @@ export default class example extends Component {
           <View style={{ flex: 1, flexDirection: 'row' }}>
             <RNImageEditor
               localSourceImage={{ filename: 'whale.png', directory: ImageEditor.MAIN_BUNDLE, mode: 'AspectFit' }}
-              // localSourceImage={{ filename: 'bulb.png', directory: RNSketchCanvas.MAIN_BUNDLE }}
+              // localSourceImage={{ filename: 'bulb.png', directory: RNImageEditor.MAIN_BUNDLE }}
               containerStyle={{ backgroundColor: 'transparent', flex: 1 }}
               canvasStyle={{ backgroundColor: 'transparent', flex: 1 }}
               onStrokeEnd={data => {
@@ -492,7 +492,7 @@ export default class example extends Component {
               saveComponent={<View style={styles.functionButton}><Text style={{ color: 'white' }}>Save</Text></View>}
               savePreference={() => {
                 return {
-                  folder: 'RNSketchCanvas',
+                  folder: 'RNImageEditor',
                   filename: String(Math.ceil(Math.random() * 100000000)),
                   transparent: false,
                   includeImage: false,
@@ -559,7 +559,7 @@ export default class example extends Component {
               saveComponent={<View style={styles.functionButton}><Text style={{ color: 'white' }}>Save</Text></View>}
               savePreference={() => {
                 return {
-                  folder: 'RNSketchCanvas',
+                  folder: 'RNImageEditor',
                   filename: String(Math.ceil(Math.random() * 100000000)),
                   transparent: false,
                   includeImage: false,
