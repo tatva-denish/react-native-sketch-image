@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface RNSketchData : NSObject
+@interface RNSImageEditorData : NSObject
 
 @property (nonatomic, readonly) int pathId;
 @property (nonatomic, readonly) CGFloat strokeWidth;

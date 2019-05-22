@@ -6,10 +6,10 @@
 //  Copyright © 2017 Terry. All rights reserved.
 //
 
-#import "RNSketchData.h"
+#import "RNImageEditorData.h"
 #import "Utility.h"
 
-@interface RNSketchData ()
+@interface RNImageEditorData ()
 
 @property (nonatomic, readwrite) int pathId;
 @property (nonatomic, readwrite) CGFloat strokeWidth;
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation RNSketchData
+@implementation RNImageEditorData
 {
     CGRect _dirty;
     UIBezierPath *_path;

@@ -13,7 +13,7 @@
 		85C9F6F5218885F400BD64B4 /* TriangleEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 85C9F6F4218885F400BD64B4 /* TriangleEntity.m */; };
 		85E432F5218892CD00FDDA74 /* ArrowEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E432F4218892CD00FDDA74 /* ArrowEntity.m */; };
 		D7BC84182180814600A275D3 /* MotionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BC84172180814600A275D3 /* MotionEntity.m */; };
-		DE0C99801F32D596001BDE8B /* RNSketchData.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0C997F1F32D596001BDE8B /* RNSketchData.m */; };
+		DE0C99801F32D596001BDE8B /* RNImageEditorData.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0C997F1F32D596001BDE8B /* RNImageEditorData.m */; };
 		DEB694891F322F2A00DC6841 /* RNImageEditorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB694861F322F2A00DC6841 /* RNImageEditorManager.m */; };
 		DED3A13720A4159A00D72FBF /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = DED3A13520A4159A00D72FBF /* Utility.m */; };
 		DEFBA25D1F322B6000A4545C /* RNImageEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFBA25C1F322B6000A4545C /* RNImageEditor.m */; };
@@ -47,8 +47,8 @@
 		D7B7D3E1217DE92C00902B8C /* Enumerations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Enumerations.h; sourceTree = "<group>"; };
 		D7BC8411217F4FE600A275D3 /* MotionEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MotionEntity.h; sourceTree = "<group>"; };
 		D7BC84172180814600A275D3 /* MotionEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MotionEntity.m; sourceTree = "<group>"; };
-		DE0C997E1F32D596001BDE8B /* RNSketchData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSketchData.h; sourceTree = "<group>"; };
-		DE0C997F1F32D596001BDE8B /* RNSketchData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNSketchData.m; sourceTree = "<group>"; };
+		DE0C997E1F32D596001BDE8B /* RNImageEditorData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNImageEditorData.h; sourceTree = "<group>"; };
+		DE0C997F1F32D596001BDE8B /* RNImageEditorData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNImageEditorData.m; sourceTree = "<group>"; };
 		DEB694851F322F2A00DC6841 /* RNImageEditorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNImageEditorManager.h; sourceTree = "<group>"; };
 		DEB694861F322F2A00DC6841 /* RNImageEditorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNImageEditorManager.m; sourceTree = "<group>"; };
 		DED3A13520A4159A00D72FBF /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
@@ -121,8 +121,8 @@
 				DEB694861F322F2A00DC6841 /* RNImageEditorManager.m */,
 				DEFBA25B1F322B6000A4545C /* RNImageEditor.h */,
 				DEFBA25C1F322B6000A4545C /* RNImageEditor.m */,
-				DE0C997E1F32D596001BDE8B /* RNSketchData.h */,
-				DE0C997F1F32D596001BDE8B /* RNSketchData.m */,
+				DE0C997E1F32D596001BDE8B /* RNImageEditorData.h */,
+				DE0C997F1F32D596001BDE8B /* RNImageEditorData.m */,
 				DED3A13620A4159A00D72FBF /* Utility.h */,
 				DED3A13520A4159A00D72FBF /* Utility.m */,
 			);
@@ -191,7 +191,7 @@
 				8579D13721889DE500773C27 /* TextEntity.m in Sources */,
 				DED3A13720A4159A00D72FBF /* Utility.m in Sources */,
 				85C9F6F2218879DB00BD64B4 /* RectEntity.m in Sources */,
-				DE0C99801F32D596001BDE8B /* RNSketchData.m in Sources */,
+				DE0C99801F32D596001BDE8B /* RNImageEditorData.m in Sources */,
 				D7BC84182180814600A275D3 /* MotionEntity.m in Sources */,
 				858EE6372180DFBD009C9E08 /* CircleEntity.m in Sources */,
 				85E432F5218892CD00FDDA74 /* ArrowEntity.m in Sources */,

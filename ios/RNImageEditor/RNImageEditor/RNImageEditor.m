@@ -1,6 +1,6 @@
 #import "RNImageEditorManager.h"
 #import "RNImageEditor.h"
-#import "RNSketchData.h"
+#import "RNImageEditorData.h"
 #import <React/RCTEventDispatcher.h>
 #import <React/RCTView.h>
 #import <React/UIView+React.h>
@@ -17,7 +17,7 @@
 {
     RCTEventDispatcher *_eventDispatcher;
     NSMutableArray *_paths;
-    RNSketchData *_currentPath;
+    RNImageEditorData *_currentPath;
 
     CGSize _lastSize;
 
@@ -88,7 +88,7 @@
     if (_needsFullRedraw) {
         [self setFrozenImageNeedsUpdate];
         CGContextClearRect(_drawingContext, bounds);
-        for (RNSketchData *path in _paths) {
+        for (RNImageEditorData *path in _paths) {
             [path drawInContext:_drawingContext];
         }
         _needsFullRedraw = NO;
@@ -281,7 +281,7 @@
     }
     self.entityStrokeWidth = strokeWidth;
     
-    _currentPath = [[RNSketchData alloc]
+    _currentPath = [[RNImageEditorData alloc]
                     initWithId: pathId
                     strokeColor: strokeColor
                     strokeWidth: strokeWidth];
@@ -295,14 +295,14 @@
     
     bool exist = false;
     for(int i=0; i<_paths.count; i++) {
-        if (((RNSketchData*)_paths[i]).pathId == pathId) {
+        if (((RNImageEditorData*)_paths[i]).pathId == pathId) {
             exist = true;
             break;
         }
     }
     
     if (!exist) {
-        RNSketchData *data = [[RNSketchData alloc] initWithId: pathId
+        RNImageEditorData *data = [[RNImageEditorData alloc] initWithId: pathId
                                                   strokeColor: strokeColor
                                                   strokeWidth: strokeWidth
                                                        points: points];
@@ -317,7 +317,7 @@
 - (void)deletePath:(int) pathId {
     int index = -1;
     for(int i=0; i<_paths.count; i++) {
-        if (((RNSketchData*)_paths[i]).pathId == pathId) {
+        if (((RNImageEditorData*)_paths[i]).pathId == pathId) {
             index = i;
             break;
         }
