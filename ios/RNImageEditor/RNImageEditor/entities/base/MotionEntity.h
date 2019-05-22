@@ -1,6 +1,6 @@
 //
 //  MotionEntity.h
-//  RNSketchCanvas
+//  RNImageEditor
 //
 //  Created by Thomas Steinbrüchel on 23.10.18.
 //  Copyright © 2018 Terry. All rights reserved.

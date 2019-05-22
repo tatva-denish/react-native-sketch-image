@@ -1,5 +1,5 @@
-#import "RNSketchCanvasManager.h"
-#import "RNSketchCanvas.h"
+#import "RNImageEditorManager.h"
+#import "RNImageEditor.h"
 #import "RNSketchData.h"
 #import <React/RCTEventDispatcher.h>
 #import <React/RCTView.h>
@@ -13,7 +13,7 @@
 #import "entities/ArrowEntity.h"
 #import "entities/TextEntity.h"
 
-@implementation RNSketchCanvas
+@implementation RNImageEditor
 {
     RCTEventDispatcher *_eventDispatcher;
     NSMutableArray *_paths;

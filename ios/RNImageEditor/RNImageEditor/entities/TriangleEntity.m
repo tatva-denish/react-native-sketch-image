@@ -1,16 +1,16 @@
 //
-//  CircleEntity.m
-//  RNSketchCanvas
+//  TriangleEntity.m
+//  RNImageEditor
 //
-//  Created by Thomas Steinbrüchel on 24.10.18.
+//  Created by Thomas Steinbrüchel on 30.10.18.
 //  Copyright © 2018 Terry. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "base/MotionEntity.h"
-#import "CircleEntity.h"
+#import "TriangleEntity.h"
 
-@implementation CircleEntity
+@implementation TriangleEntity
 {
 }
 
@@ -57,12 +57,22 @@
 - (void)drawContent:(CGRect)rect withinContext:(CGContextRef)contextRef {
     CGContextSetLineWidth(contextRef, self.entityStrokeWidth / self.scale);
     CGContextSetStrokeColorWithColor(contextRef, [self.entityStrokeColor CGColor]);
-    
-    CGRect circleRect = CGRectMake(0, 0, rect.size.width, rect.size.height);
+
+    CGRect entityRect = CGRectMake(0, 0, rect.size.width, rect.size.height);
     CGFloat padding = (self.bordersPadding + self.entityStrokeWidth) / self.scale;
-    circleRect = CGRectInset(circleRect, padding , padding);
+    entityRect = CGRectInset(entityRect, padding , padding);
     
-    CGContextStrokeEllipseInRect(contextRef, circleRect);
+    CGFloat minX = CGRectGetMinX(entityRect);
+    CGFloat maxX = CGRectGetMaxX(entityRect);
+    CGFloat minY = CGRectGetMinY(entityRect);
+    
+    CGContextBeginPath(contextRef);
+    CGContextMoveToPoint(contextRef, minX, maxX);
+    CGContextAddLineToPoint(contextRef, maxX, maxX);
+    CGContextAddLineToPoint(contextRef, maxX / 2.0, minY);
+    CGContextClosePath(contextRef);
+    
+    CGContextStrokePath(contextRef);
 }
 
 @end

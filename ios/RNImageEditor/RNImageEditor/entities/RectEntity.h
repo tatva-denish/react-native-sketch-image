@@ -1,6 +1,6 @@
 //
-//  ArrowEntity.h
-//  RNSketchCanvas
+//  RectEntity.h
+//  RNImageEditor
 //
 //  Created by Thomas Steinbrüchel on 30.10.18.
 //  Copyright © 2018 Terry. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import "base/MotionEntity.h"
 
-@interface ArrowEntity : MotionEntity
+@interface RectEntity : MotionEntity
 
 - (instancetype)initAndSetupWithParent: (NSInteger)parentWidth
                           parentHeight: (NSInteger)parentHeight

@@ -1,6 +1,6 @@
 //
 //  Enumerations.h
-//  RNSketchCanvas
+//  RNImageEditor
 //
 //  Created by Thomas Steinbrüchel on 22.10.18.
 //  Copyright © 2018 Terry. All rights reserved.

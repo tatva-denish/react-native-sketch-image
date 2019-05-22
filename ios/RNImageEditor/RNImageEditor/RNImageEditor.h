@@ -4,7 +4,7 @@
 
 @class RCTEventDispatcher;
 
-@interface RNSketchCanvas : UIView <UIGestureRecognizerDelegate>
+@interface RNImageEditor : UIView <UIGestureRecognizerDelegate>
 
 @property (nonatomic, copy) RCTBubblingEventBlock onChange;
 @property (nonatomic) NSMutableArray<MotionEntity *> *motionEntities;

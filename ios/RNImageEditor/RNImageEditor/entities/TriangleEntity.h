@@ -1,6 +1,6 @@
 //
 //  TriangleEntity.h
-//  RNSketchCanvas
+//  RNImageEditor
 //
 //  Created by Thomas Steinbrüchel on 30.10.18.
 //  Copyright © 2018 Terry. All rights reserved.

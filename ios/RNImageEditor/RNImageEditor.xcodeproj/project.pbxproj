@@ -14,10 +14,10 @@
 		85E432F5218892CD00FDDA74 /* ArrowEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E432F4218892CD00FDDA74 /* ArrowEntity.m */; };
 		D7BC84182180814600A275D3 /* MotionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BC84172180814600A275D3 /* MotionEntity.m */; };
 		DE0C99801F32D596001BDE8B /* RNSketchData.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0C997F1F32D596001BDE8B /* RNSketchData.m */; };
-		DEB694891F322F2A00DC6841 /* RNSketchCanvasManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB694861F322F2A00DC6841 /* RNSketchCanvasManager.m */; };
+		DEB694891F322F2A00DC6841 /* RNImageEditorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB694861F322F2A00DC6841 /* RNImageEditorManager.m */; };
 		DED3A13720A4159A00D72FBF /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = DED3A13520A4159A00D72FBF /* Utility.m */; };
-		DEFBA25D1F322B6000A4545C /* RNSketchCanvas.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFBA25C1F322B6000A4545C /* RNSketchCanvas.m */; };
-		DEFBA25E1F322B6000A4545C /* RNSketchCanvas.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = DEFBA25B1F322B6000A4545C /* RNSketchCanvas.h */; };
+		DEFBA25D1F322B6000A4545C /* RNImageEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFBA25C1F322B6000A4545C /* RNImageEditor.m */; };
+		DEFBA25E1F322B6000A4545C /* RNImageEditor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = DEFBA25B1F322B6000A4545C /* RNImageEditor.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,7 +27,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				DEFBA25E1F322B6000A4545C /* RNSketchCanvas.h in CopyFiles */,
+				DEFBA25E1F322B6000A4545C /* RNImageEditor.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,13 +49,13 @@
 		D7BC84172180814600A275D3 /* MotionEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MotionEntity.m; sourceTree = "<group>"; };
 		DE0C997E1F32D596001BDE8B /* RNSketchData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSketchData.h; sourceTree = "<group>"; };
 		DE0C997F1F32D596001BDE8B /* RNSketchData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNSketchData.m; sourceTree = "<group>"; };
-		DEB694851F322F2A00DC6841 /* RNSketchCanvasManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSketchCanvasManager.h; sourceTree = "<group>"; };
-		DEB694861F322F2A00DC6841 /* RNSketchCanvasManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNSketchCanvasManager.m; sourceTree = "<group>"; };
+		DEB694851F322F2A00DC6841 /* RNImageEditorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNImageEditorManager.h; sourceTree = "<group>"; };
+		DEB694861F322F2A00DC6841 /* RNImageEditorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNImageEditorManager.m; sourceTree = "<group>"; };
 		DED3A13520A4159A00D72FBF /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
 		DED3A13620A4159A00D72FBF /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
-		DEFBA2581F322B6000A4545C /* libRNSketchCanvas.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNSketchCanvas.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		DEFBA25B1F322B6000A4545C /* RNSketchCanvas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSketchCanvas.h; sourceTree = "<group>"; };
-		DEFBA25C1F322B6000A4545C /* RNSketchCanvas.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNSketchCanvas.m; sourceTree = "<group>"; };
+		DEFBA2581F322B6000A4545C /* libRNImageEditor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNImageEditor.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEFBA25B1F322B6000A4545C /* RNImageEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNImageEditor.h; sourceTree = "<group>"; };
+		DEFBA25C1F322B6000A4545C /* RNImageEditor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNImageEditor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +100,7 @@
 		DEFBA24F1F322B5F00A4545C = {
 			isa = PBXGroup;
 			children = (
-				DEFBA25A1F322B6000A4545C /* RNSketchCanvas */,
+				DEFBA25A1F322B6000A4545C /* RNImageEditor */,
 				DEFBA2591F322B6000A4545C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -108,33 +108,33 @@
 		DEFBA2591F322B6000A4545C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DEFBA2581F322B6000A4545C /* libRNSketchCanvas.a */,
+				DEFBA2581F322B6000A4545C /* libRNImageEditor.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DEFBA25A1F322B6000A4545C /* RNSketchCanvas */ = {
+		DEFBA25A1F322B6000A4545C /* RNImageEditor */ = {
 			isa = PBXGroup;
 			children = (
 				D7B7D3E0217DE80400902B8C /* entities */,
-				DEB694851F322F2A00DC6841 /* RNSketchCanvasManager.h */,
-				DEB694861F322F2A00DC6841 /* RNSketchCanvasManager.m */,
-				DEFBA25B1F322B6000A4545C /* RNSketchCanvas.h */,
-				DEFBA25C1F322B6000A4545C /* RNSketchCanvas.m */,
+				DEB694851F322F2A00DC6841 /* RNImageEditorManager.h */,
+				DEB694861F322F2A00DC6841 /* RNImageEditorManager.m */,
+				DEFBA25B1F322B6000A4545C /* RNImageEditor.h */,
+				DEFBA25C1F322B6000A4545C /* RNImageEditor.m */,
 				DE0C997E1F32D596001BDE8B /* RNSketchData.h */,
 				DE0C997F1F32D596001BDE8B /* RNSketchData.m */,
 				DED3A13620A4159A00D72FBF /* Utility.h */,
 				DED3A13520A4159A00D72FBF /* Utility.m */,
 			);
-			path = RNSketchCanvas;
+			path = RNImageEditor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DEFBA2571F322B5F00A4545C /* RNSketchCanvas */ = {
+		DEFBA2571F322B5F00A4545C /* RNImageEditor */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DEFBA2611F322B6000A4545C /* Build configuration list for PBXNativeTarget "RNSketchCanvas" */;
+			buildConfigurationList = DEFBA2611F322B6000A4545C /* Build configuration list for PBXNativeTarget "RNImageEditor" */;
 			buildPhases = (
 				DEFBA2541F322B5F00A4545C /* Sources */,
 				DEFBA2551F322B5F00A4545C /* Frameworks */,
@@ -144,9 +144,9 @@
 			);
 			dependencies = (
 			);
-			name = RNSketchCanvas;
+			name = RNImageEditor;
 			productName = RNSketchCanvas;
-			productReference = DEFBA2581F322B6000A4545C /* libRNSketchCanvas.a */;
+			productReference = DEFBA2581F322B6000A4545C /* libRNImageEditor.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -164,11 +164,12 @@
 					};
 				};
 			};
-			buildConfigurationList = DEFBA2531F322B5F00A4545C /* Build configuration list for PBXProject "RNSketchCanvas" */;
+			buildConfigurationList = DEFBA2531F322B5F00A4545C /* Build configuration list for PBXProject "RNImageEditor" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = DEFBA24F1F322B5F00A4545C;
@@ -176,7 +177,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DEFBA2571F322B5F00A4545C /* RNSketchCanvas */,
+				DEFBA2571F322B5F00A4545C /* RNImageEditor */,
 			);
 		};
 /* End PBXProject section */
@@ -186,7 +187,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEFBA25D1F322B6000A4545C /* RNSketchCanvas.m in Sources */,
+				DEFBA25D1F322B6000A4545C /* RNImageEditor.m in Sources */,
 				8579D13721889DE500773C27 /* TextEntity.m in Sources */,
 				DED3A13720A4159A00D72FBF /* Utility.m in Sources */,
 				85C9F6F2218879DB00BD64B4 /* RectEntity.m in Sources */,
@@ -195,7 +196,7 @@
 				858EE6372180DFBD009C9E08 /* CircleEntity.m in Sources */,
 				85E432F5218892CD00FDDA74 /* ArrowEntity.m in Sources */,
 				85C9F6F5218885F400BD64B4 /* TriangleEntity.m in Sources */,
-				DEB694891F322F2A00DC6841 /* RNSketchCanvasManager.m in Sources */,
+				DEB694891F322F2A00DC6841 /* RNImageEditorManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,7 +326,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DEFBA2531F322B5F00A4545C /* Build configuration list for PBXProject "RNSketchCanvas" */ = {
+		DEFBA2531F322B5F00A4545C /* Build configuration list for PBXProject "RNImageEditor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DEFBA25F1F322B6000A4545C /* Debug */,
@@ -334,7 +335,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DEFBA2611F322B6000A4545C /* Build configuration list for PBXNativeTarget "RNSketchCanvas" */ = {
+		DEFBA2611F322B6000A4545C /* Build configuration list for PBXNativeTarget "RNImageEditor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DEFBA2621F322B6000A4545C /* Debug */,

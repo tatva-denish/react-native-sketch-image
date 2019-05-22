@@ -1,16 +1,16 @@
 //
-//  RectEntity.m
-//  RNSketchCanvas
+//  CircleEntity.m
+//  RNImageEditor
 //
-//  Created by Thomas Steinbrüchel on 30.10.18.
+//  Created by Thomas Steinbrüchel on 24.10.18.
 //  Copyright © 2018 Terry. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "base/MotionEntity.h"
-#import "RectEntity.h"
+#import "CircleEntity.h"
 
-@implementation RectEntity
+@implementation CircleEntity
 {
 }
 
@@ -58,11 +58,11 @@
     CGContextSetLineWidth(contextRef, self.entityStrokeWidth / self.scale);
     CGContextSetStrokeColorWithColor(contextRef, [self.entityStrokeColor CGColor]);
     
-    CGRect entityRect = CGRectMake(0, 0, rect.size.width, rect.size.height);
+    CGRect circleRect = CGRectMake(0, 0, rect.size.width, rect.size.height);
     CGFloat padding = (self.bordersPadding + self.entityStrokeWidth) / self.scale;
-    entityRect = CGRectInset(entityRect, padding , padding);
+    circleRect = CGRectInset(circleRect, padding , padding);
     
-    CGContextStrokeRect(contextRef, entityRect);
+    CGContextStrokeEllipseInRect(contextRef, circleRect);
 }
 
 @end
