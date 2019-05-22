@@ -1,4 +1,4 @@
-package com.terrylinla.rnsketchcanvas.utils.entities;
+package com.wwimmo.rnsketchcanvas.utils.entities;
 
 import android.graphics.Canvas;
 import android.graphics.Path;
@@ -12,9 +12,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.terrylinla.rnsketchcanvas.utils.Utility;
-import com.terrylinla.rnsketchcanvas.utils.entities.BorderStyle;
-import com.terrylinla.rnsketchcanvas.utils.layers.Layer;
+import com.wwimmo.rnsketchcanvas.utils.Utility;
+import com.wwimmo.rnsketchcanvas.utils.entities.BorderStyle;
+import com.wwimmo.rnsketchcanvas.utils.layers.Layer;
 
 @SuppressWarnings({"WeakerAccess"})
 public abstract class MotionEntity {

@@ -1,4 +1,4 @@
-package com.terrylinla.rnsketchcanvas.utils.entities;
+package com.wwimmo.rnsketchcanvas.utils.entities;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -11,7 +11,7 @@ import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.terrylinla.rnsketchcanvas.utils.layers.Layer;
+import com.wwimmo.rnsketchcanvas.utils.layers.Layer;
 
 public class ArrowEntity extends MotionEntity {
     private int mWidth;

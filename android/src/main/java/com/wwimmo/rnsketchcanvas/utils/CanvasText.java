@@ -1,4 +1,4 @@
-package com.terrylinla.rnsketchcanvas.utils;
+package com.wwimmo.rnsketchcanvas.utils;
 
 import android.graphics.Paint;
 import android.graphics.PointF;

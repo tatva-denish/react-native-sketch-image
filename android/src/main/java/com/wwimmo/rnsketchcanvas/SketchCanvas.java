@@ -1,4 +1,4 @@
-package com.terrylinla.rnsketchcanvas;
+package com.wwimmo.rnsketchcanvas;
 
 import android.graphics.Typeface;
 import android.graphics.Bitmap;
@@ -34,21 +34,21 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import com.terrylinla.rnsketchcanvas.utils.CanvasText;
-import com.terrylinla.rnsketchcanvas.utils.Utility;
-import com.terrylinla.rnsketchcanvas.utils.layers.Font;
-import com.terrylinla.rnsketchcanvas.utils.layers.Layer;
-import com.terrylinla.rnsketchcanvas.utils.layers.TextLayer;
-import com.terrylinla.rnsketchcanvas.utils.entities.ArrowEntity;
-import com.terrylinla.rnsketchcanvas.utils.entities.BorderStyle;
-import com.terrylinla.rnsketchcanvas.utils.entities.EntityType;
-import com.terrylinla.rnsketchcanvas.utils.entities.CircleEntity;
-import com.terrylinla.rnsketchcanvas.utils.entities.RectEntity;
-import com.terrylinla.rnsketchcanvas.utils.entities.MotionEntity;
-import com.terrylinla.rnsketchcanvas.utils.entities.TriangleEntity;
-import com.terrylinla.rnsketchcanvas.utils.entities.TextEntity;
-import com.terrylinla.rnsketchcanvas.utils.gestureDetectors.MoveGestureDetector;
-import com.terrylinla.rnsketchcanvas.utils.gestureDetectors.RotateGestureDetector;
+import com.wwimmo.rnsketchcanvas.utils.CanvasText;
+import com.wwimmo.rnsketchcanvas.utils.Utility;
+import com.wwimmo.rnsketchcanvas.utils.layers.Font;
+import com.wwimmo.rnsketchcanvas.utils.layers.Layer;
+import com.wwimmo.rnsketchcanvas.utils.layers.TextLayer;
+import com.wwimmo.rnsketchcanvas.utils.entities.ArrowEntity;
+import com.wwimmo.rnsketchcanvas.utils.entities.BorderStyle;
+import com.wwimmo.rnsketchcanvas.utils.entities.EntityType;
+import com.wwimmo.rnsketchcanvas.utils.entities.CircleEntity;
+import com.wwimmo.rnsketchcanvas.utils.entities.RectEntity;
+import com.wwimmo.rnsketchcanvas.utils.entities.MotionEntity;
+import com.wwimmo.rnsketchcanvas.utils.entities.TriangleEntity;
+import com.wwimmo.rnsketchcanvas.utils.entities.TextEntity;
+import com.wwimmo.rnsketchcanvas.utils.gestureDetectors.MoveGestureDetector;
+import com.wwimmo.rnsketchcanvas.utils.gestureDetectors.RotateGestureDetector;
 
 public class SketchCanvas extends View {
     // Data

@@ -1,4 +1,4 @@
-package com.terrylinla.rnsketchcanvas.utils.layers;
+package com.wwimmo.rnsketchcanvas.utils.layers;
 
 import com.facebook.react.uimanager.ThemedReactContext;
 
