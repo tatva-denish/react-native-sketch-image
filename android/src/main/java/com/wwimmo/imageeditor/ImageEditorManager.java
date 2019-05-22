@@ -30,7 +30,7 @@ import javax.annotation.Nullable;
 
 import com.wwimmo.imageeditor.utils.entities.EntityType;
 
-public class SketchCanvasManager extends SimpleViewManager<SketchCanvas> {
+public class ImageEditorManager extends SimpleViewManager<ImageEditor> {
     public static final int COMMAND_ADD_POINT = 1;
     public static final int COMMAND_NEW_PATH = 2;
     public static final int COMMAND_CLEAR = 3;
@@ -44,7 +44,7 @@ public class SketchCanvasManager extends SimpleViewManager<SketchCanvas> {
     public static final int COMMAND_DECREASE_SHAPE_FONTSIZE = 11;
     public static final int COMMAND_CHANGE_SHAPE_TEXT = 12;
 
-    public static SketchCanvas Canvas = null;
+    public static ImageEditor Canvas = null;
 
     private static final String PROPS_LOCAL_SOURCE_IMAGE = "localSourceImage";
     private static final String PROPS_TEXT = "text";
@@ -52,24 +52,24 @@ public class SketchCanvasManager extends SimpleViewManager<SketchCanvas> {
 
     @Override
     public String getName() {
-        return "RNSketchCanvas";
+        return "RNImageEditor";
     }
 
     @Override
-    protected SketchCanvas createViewInstance(ThemedReactContext context) {
-        SketchCanvasManager.Canvas = new SketchCanvas(context);
-        return SketchCanvasManager.Canvas;
+    protected ImageEditor createViewInstance(ThemedReactContext context) {
+        ImageEditorManager.Canvas = new ImageEditor(context);
+        return ImageEditorManager.Canvas;
     }
 
     @ReactProp(name = PROPS_SHAPE_CONFIGURATION)
-    public void setShapeConfiguration(SketchCanvas viewContainer, ReadableMap shapeConfiguration) {
+    public void setShapeConfiguration(ImageEditor viewContainer, ReadableMap shapeConfiguration) {
         if (shapeConfiguration != null) {
             viewContainer.setShapeConfiguration(shapeConfiguration);
         }
     }
 
     @ReactProp(name = PROPS_LOCAL_SOURCE_IMAGE)
-    public void setLocalSourceImage(SketchCanvas viewContainer, ReadableMap localSourceImage) {
+    public void setLocalSourceImage(ImageEditor viewContainer, ReadableMap localSourceImage) {
         if (localSourceImage != null && localSourceImage.getString("filename") != null) {
             viewContainer.openImageFile(
                 localSourceImage.hasKey("filename") ? localSourceImage.getString("filename") : null,
@@ -80,7 +80,7 @@ public class SketchCanvasManager extends SimpleViewManager<SketchCanvas> {
     }
 
     @ReactProp(name = PROPS_TEXT)
-    public void setText(SketchCanvas viewContainer, ReadableArray text) {
+    public void setText(ImageEditor viewContainer, ReadableArray text) {
         viewContainer.setCanvasText(text);
     }
 
@@ -105,12 +105,12 @@ public class SketchCanvasManager extends SimpleViewManager<SketchCanvas> {
     }
 
     @Override
-    protected void addEventEmitters(ThemedReactContext reactContext, SketchCanvas view) {
+    protected void addEventEmitters(ThemedReactContext reactContext, ImageEditor view) {
 
     }
 
     @Override
-    public void receiveCommand(SketchCanvas view, int commandType, @Nullable ReadableArray args) {
+    public void receiveCommand(ImageEditor view, int commandType, @Nullable ReadableArray args) {
         switch (commandType) {
             case COMMAND_ADD_POINT: {
                 view.addPoint((float)args.getDouble(0), (float)args.getDouble(1), (boolean)args.getBoolean(2));

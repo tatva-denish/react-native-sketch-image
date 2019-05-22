@@ -50,7 +50,7 @@ import com.wwimmo.imageeditor.utils.entities.TextEntity;
 import com.wwimmo.imageeditor.utils.gestureDetectors.MoveGestureDetector;
 import com.wwimmo.imageeditor.utils.gestureDetectors.RotateGestureDetector;
 
-public class SketchCanvas extends View {
+public class ImageEditor extends View {
     // Data
     private ArrayList<SketchData> mPaths = new ArrayList<SketchData>();
     private SketchData mCurrentPath = null;
@@ -90,7 +90,7 @@ public class SketchCanvas extends View {
     private boolean mDisableHardwareAccelerated = false;
     private boolean mNeedsFullRedraw = true;
 
-    public SketchCanvas(ThemedReactContext context) {
+    public ImageEditor(ThemedReactContext context) {
         super(context);
         mContext = context;
 

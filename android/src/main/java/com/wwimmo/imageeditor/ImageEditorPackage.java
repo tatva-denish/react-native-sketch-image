@@ -19,14 +19,14 @@ public class ImageEditorPackage implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         return Arrays.<NativeModule>asList(
-            new SketchCanvasModule(reactContext)
+            new ImageEditorModule(reactContext)
         );
     }
 
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
         return Arrays.<ViewManager>asList(
-            new SketchCanvasManager()
+            new ImageEditorManager()
         );
     }
 

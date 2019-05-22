@@ -10,14 +10,14 @@ import com.facebook.react.uimanager.NativeViewHierarchyManager;
 import com.facebook.react.uimanager.UIBlock;
 import com.facebook.react.uimanager.UIManagerModule;
 
-public class SketchCanvasModule extends ReactContextBaseJavaModule {
-    SketchCanvasModule(ReactApplicationContext reactContext) {
+public class ImageEditorModule extends ReactContextBaseJavaModule {
+    ImageEditorModule(ReactApplicationContext reactContext) {
         super(reactContext);
     }
 
     @Override
     public String getName() {
-        return "SketchCanvasModule";
+        return "ImageEditorModule";
     }
 
     @ReactMethod
@@ -28,7 +28,7 @@ public class SketchCanvasModule extends ReactContextBaseJavaModule {
             UIManagerModule uiManager = context.getNativeModule(UIManagerModule.class);
             uiManager.addUIBlock(new UIBlock() {
                 public void execute(NativeViewHierarchyManager nvhm) {
-                    SketchCanvas view = (SketchCanvas) nvhm.resolveView(tag);
+                    ImageEditor view = (ImageEditor) nvhm.resolveView(tag);
                     String base64 = view.getBase64(type, transparent, includeImage, includeText, cropToImageSize);
                     callback.invoke(null, base64);
                 }
