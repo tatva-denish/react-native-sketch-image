@@ -1,4 +1,4 @@
-package com.wwimmo.rnsketchcanvas;
+package com.wwimmo.imageeditor;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
@@ -11,9 +11,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
 
-public class SketchCanvasPackage implements ReactPackage {
+public class ImageEditorPackage implements ReactPackage {
 
-    public SketchCanvasPackage() {
+    public ImageEditorPackage() {
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.wwimmo.rnsketchcanvas;
+package com.wwimmo.imageeditor;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -28,7 +28,7 @@ import android.graphics.PointF;
 
 import javax.annotation.Nullable;
 
-import com.wwimmo.rnsketchcanvas.utils.entities.EntityType;
+import com.wwimmo.imageeditor.utils.entities.EntityType;
 
 public class SketchCanvasManager extends SimpleViewManager<SketchCanvas> {
     public static final int COMMAND_ADD_POINT = 1;

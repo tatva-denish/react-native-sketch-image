@@ -1,4 +1,4 @@
-package com.wwimmo.rnsketchcanvas.utils;
+package com.wwimmo.imageeditor.utils;
 
 import android.graphics.Paint;
 import android.graphics.PointF;

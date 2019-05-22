@@ -1,7 +1,6 @@
-package com.wwimmo.rnsketchcanvas.utils.gestureDetectors;
+package com.wwimmo.imageeditor.utils.gestureDetectors;
 
 import android.content.Context;
-import android.graphics.PointF;
 import android.view.MotionEvent;
 
 /**
@@ -24,15 +23,13 @@ import android.view.MotionEvent;
  *         OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
  *         OF SUCH DAMAGE.
  */
-public class MoveGestureDetector extends BaseGestureDetector {
+public class RotateGestureDetector extends TwoFingerGestureDetector {
 
-    private static final PointF FOCUS_DELTA_ZERO = new PointF();
-    private final OnMoveGestureListener mListener;
-    private PointF mCurrFocusInternal;
-    private PointF mPrevFocusInternal;
-    private PointF mFocusExternal = new PointF();
-    private PointF mFocusDeltaExternal = new PointF();
-    public MoveGestureDetector(Context context, OnMoveGestureListener listener) {
+    private final OnRotateGestureListener mListener;
+    private boolean mSloppyGesture;
+
+
+    public RotateGestureDetector(Context context, OnRotateGestureListener listener) {
         super(context);
         mListener = listener;
     }
@@ -40,17 +37,42 @@ public class MoveGestureDetector extends BaseGestureDetector {
     @Override
     protected void handleStartProgressEvent(int actionCode, MotionEvent event) {
         switch (actionCode) {
-            case MotionEvent.ACTION_DOWN:
-                resetState(); // In case we missed an UP/CANCEL event
+            case MotionEvent.ACTION_POINTER_DOWN:
+                // At least the second finger is on screen now
 
+                resetState(); // In case we missed an UP/CANCEL event
                 mPrevEvent = MotionEvent.obtain(event);
                 mTimeDelta = 0;
 
                 updateStateByEvent(event);
+
+                // See if we have a sloppy gesture
+                mSloppyGesture = isSloppyGesture(event);
+                if (!mSloppyGesture) {
+                    // No, start gesture now
+                    mGestureInProgress = mListener.onRotateBegin(this);
+                }
                 break;
 
             case MotionEvent.ACTION_MOVE:
-                mGestureInProgress = mListener.onMoveBegin(this);
+                if (!mSloppyGesture) {
+                    break;
+                }
+
+                // See if we still have a sloppy gesture
+                mSloppyGesture = isSloppyGesture(event);
+                if (!mSloppyGesture) {
+                    // No, start normal gesture now
+                    mGestureInProgress = mListener.onRotateBegin(this);
+                }
+
+                break;
+
+            case MotionEvent.ACTION_POINTER_UP:
+                if (!mSloppyGesture) {
+                    break;
+                }
+
                 break;
         }
     }
@@ -58,9 +80,22 @@ public class MoveGestureDetector extends BaseGestureDetector {
     @Override
     protected void handleInProgressEvent(int actionCode, MotionEvent event) {
         switch (actionCode) {
-            case MotionEvent.ACTION_UP:
+            case MotionEvent.ACTION_POINTER_UP:
+                // Gesture ended but
+                updateStateByEvent(event);
+
+                if (!mSloppyGesture) {
+                    mListener.onRotateEnd(this);
+                }
+
+                resetState();
+                break;
+
             case MotionEvent.ACTION_CANCEL:
-                mListener.onMoveEnd(this);
+                if (!mSloppyGesture) {
+                    mListener.onRotateEnd(this);
+                }
+
                 resetState();
                 break;
 
@@ -71,7 +106,7 @@ public class MoveGestureDetector extends BaseGestureDetector {
                 // a certain limit. This can help filter shaky data as a
                 // finger is lifted.
                 if (mCurrPressure / mPrevPressure > PRESSURE_THRESHOLD) {
-                    final boolean updatePrevious = mListener.onMove(this);
+                    final boolean updatePrevious = mListener.onRotate(this);
                     if (updatePrevious) {
                         mPrevEvent.recycle();
                         mPrevEvent = MotionEvent.obtain(event);
@@ -81,91 +116,54 @@ public class MoveGestureDetector extends BaseGestureDetector {
         }
     }
 
-    protected void updateStateByEvent(MotionEvent curr) {
-        super.updateStateByEvent(curr);
-
-        final MotionEvent prev = mPrevEvent;
-
-        // Focus intenal
-        mCurrFocusInternal = determineFocalPoint(curr);
-        mPrevFocusInternal = determineFocalPoint(prev);
-
-        // Focus external
-        // - Prevent skipping of focus delta when a finger is added or removed
-        boolean mSkipNextMoveEvent = prev.getPointerCount() != curr.getPointerCount();
-        mFocusDeltaExternal = mSkipNextMoveEvent ? FOCUS_DELTA_ZERO : new PointF(mCurrFocusInternal.x - mPrevFocusInternal.x, mCurrFocusInternal.y - mPrevFocusInternal.y);
-
-        // - Don't directly use mFocusInternal (or skipping will occur). Add
-        // 	 unskipped delta values to mFocusExternal instead.
-        mFocusExternal.x += mFocusDeltaExternal.x;
-        mFocusExternal.y += mFocusDeltaExternal.y;
+    @Override
+    protected void resetState() {
+        super.resetState();
+        mSloppyGesture = false;
     }
 
     /**
-     * Determine (multi)finger focal point (a.k.a. center point between all
-     * fingers)
+     * Return the rotation difference from the previous rotate event to the current
+     * event.
      *
-     * @param MotionEvent e
-     * @return PointF focal point
+     * @return The current rotation //difference in degrees.
      */
-    private PointF determineFocalPoint(MotionEvent e) {
-        // Number of fingers on screen
-        final int pCount = e.getPointerCount();
-        float x = 0f;
-        float y = 0f;
-
-        for (int i = 0; i < pCount; i++) {
-            x += e.getX(i);
-            y += e.getY(i);
-        }
-
-        return new PointF(x / pCount, y / pCount);
-    }
-
-    public float getFocusX() {
-        return mFocusExternal.x;
-    }
-
-    public float getFocusY() {
-        return mFocusExternal.y;
-    }
-
-    public PointF getFocusDelta() {
-        return mFocusDeltaExternal;
+    public float getRotationDegreesDelta() {
+        double diffRadians = Math.atan2(mPrevFingerDiffY, mPrevFingerDiffX) - Math.atan2(mCurrFingerDiffY, mCurrFingerDiffX);
+        return (float) (diffRadians * 180 / Math.PI);
     }
 
     /**
-     * Listener which must be implemented which is used by MoveGestureDetector
+     * Listener which must be implemented which is used by RotateGestureDetector
      * to perform callbacks to any implementing class which is registered to a
-     * MoveGestureDetector via the constructor.
+     * RotateGestureDetector via the constructor.
      *
-     * @see MoveGestureDetector.SimpleOnMoveGestureListener
+     * @see RotateGestureDetector.SimpleOnRotateGestureListener
      */
-    public interface OnMoveGestureListener {
-        public boolean onMove(MoveGestureDetector detector);
+    public interface OnRotateGestureListener {
+        public boolean onRotate(RotateGestureDetector detector);
 
-        public boolean onMoveBegin(MoveGestureDetector detector);
+        public boolean onRotateBegin(RotateGestureDetector detector);
 
-        public void onMoveEnd(MoveGestureDetector detector);
+        public void onRotateEnd(RotateGestureDetector detector);
     }
 
     /**
      * Helper class which may be extended and where the methods may be
      * implemented. This way it is not necessary to implement all methods
-     * of OnMoveGestureListener.
+     * of OnRotateGestureListener.
      */
-    public static class SimpleOnMoveGestureListener implements OnMoveGestureListener {
-        public boolean onMove(MoveGestureDetector detector) {
+    public static class SimpleOnRotateGestureListener implements OnRotateGestureListener {
+        public boolean onRotate(RotateGestureDetector detector) {
             return false;
         }
 
-        public boolean onMoveBegin(MoveGestureDetector detector) {
+        public boolean onRotateBegin(RotateGestureDetector detector) {
             return true;
         }
 
-        public void onMoveEnd(MoveGestureDetector detector) {
+        public void onRotateEnd(RotateGestureDetector detector) {
             // Do nothing, overridden implementation may be used
         }
     }
-
 }

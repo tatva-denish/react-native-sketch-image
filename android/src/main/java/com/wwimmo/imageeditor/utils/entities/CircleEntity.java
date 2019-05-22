@@ -1,4 +1,4 @@
-package com.wwimmo.rnsketchcanvas.utils.entities;
+package com.wwimmo.imageeditor.utils.entities;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -10,7 +10,7 @@ import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.wwimmo.rnsketchcanvas.utils.layers.Layer;
+import com.wwimmo.imageeditor.utils.layers.Layer;
 
 public class CircleEntity extends MotionEntity {
     private Paint mCirclePaint;

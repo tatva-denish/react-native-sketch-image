@@ -1,4 +1,4 @@
-package com.wwimmo.rnsketchcanvas.utils.layers;
+package com.wwimmo.imageeditor.utils.layers;
 
 import com.facebook.react.uimanager.ThemedReactContext;
 

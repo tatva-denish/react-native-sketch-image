@@ -1,4 +1,4 @@
-package com.wwimmo.rnsketchcanvas.utils.entities;
+package com.wwimmo.imageeditor.utils.entities;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -12,7 +12,7 @@ import android.text.Layout;
 import android.text.StaticLayout;
 import android.text.TextPaint;
 
-import com.wwimmo.rnsketchcanvas.utils.layers.TextLayer;
+import com.wwimmo.imageeditor.utils.layers.TextLayer;
 
 public class TextEntity extends MotionEntity {
 

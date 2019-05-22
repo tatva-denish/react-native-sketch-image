@@ -1,4 +1,4 @@
-package com.wwimmo.rnsketchcanvas.utils;
+package com.wwimmo.imageeditor.utils;
 
 import android.util.Log;
 import android.util.DisplayMetrics;

@@ -1,4 +1,4 @@
-package com.wwimmo.rnsketchcanvas.utils.gestureDetectors;
+package com.wwimmo.imageeditor.utils.gestureDetectors;
 
 import android.content.Context;
 import android.util.DisplayMetrics;

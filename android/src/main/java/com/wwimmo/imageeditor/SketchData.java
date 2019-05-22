@@ -1,4 +1,4 @@
-package com.wwimmo.rnsketchcanvas;
+package com.wwimmo.imageeditor;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
