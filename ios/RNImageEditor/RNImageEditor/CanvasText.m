@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CanvasText.h"
 
-@implementation CanvasText : NSObject
+@implementation CanvasText
 @end
