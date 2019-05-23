@@ -5,6 +5,7 @@
 #import <React/RCTView.h>
 #import <React/UIView+React.h>
 #import "Utility.h"
+#import "CanvasText.h"
 #import "entities/base/Enumerations.h"
 #import "entities/base/MotionEntity.h"
 #import "entities/CircleEntity.h"
@@ -884,7 +885,4 @@
     }
 }
 
-@end
-
-@implementation CanvasText
 @end
