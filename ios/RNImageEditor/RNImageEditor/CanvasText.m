@@ -8,5 +8,5 @@
 
 #import <Foundation/Foundation.h>
 
-@implementation CanvasText
+@implementation CanvasText : NSObject
 @end
