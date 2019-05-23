@@ -6,6 +6,9 @@
 //  Copyright © 2019 Terry. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
 @interface CanvasText : NSObject
 
 @property (nonatomic) NSString *text;
