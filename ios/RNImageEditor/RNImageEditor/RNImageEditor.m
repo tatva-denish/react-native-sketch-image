@@ -5,7 +5,7 @@
 #import <React/RCTView.h>
 #import <React/UIView+React.h>
 #import "Utility.h"
-#import "CanvasText.h"
+#import "BackgroundText.h"
 #import "entities/base/Enumerations.h"
 #import "entities/base/MotionEntity.h"
 #import "entities/CircleEntity.h"
@@ -111,7 +111,7 @@
         [_backgroundImageScaled drawInRect:bounds];
     }
 
-    for (CanvasText *text in _arrSketchOnText) {
+    for (BackgroundText *text in _arrSketchOnText) {
         [text.text drawInRect: text.drawRect withAttributes: text.attribute];
     }
     
@@ -123,7 +123,7 @@
         CGContextDrawImage(context, bounds, _translucentFrozenImage);
     }
     
-    for (CanvasText *text in _arrTextOnSketch) {
+    for (BackgroundText *text in _arrTextOnSketch) {
         [text.text drawInRect: text.drawRect withAttributes: text.attribute];
     }
     
@@ -153,7 +153,7 @@
         _needsFullRedraw = YES;
         _backgroundImageScaled = nil;
         
-        for (CanvasText *text in [_arrTextOnSketch arrayByAddingObjectsFromArray: _arrSketchOnText]) {
+        for (BackgroundText *text in [_arrTextOnSketch arrayByAddingObjectsFromArray: _arrSketchOnText]) {
             CGPoint position = text.position;
             if (!text.isAbsoluteCoordinate) {
                 position.x *= self.bounds.size.width;
@@ -224,7 +224,7 @@
     for (NSDictionary *property in aText) {
         if (property[@"text"]) {
             NSMutableArray *arr = [@"TextOnSketch" isEqualToString: property[@"overlay"]] ? arrTextOnSketch : arrSketchOnText;
-            CanvasText *text = [CanvasText new];
+            BackgroundText *text = [BackgroundText new];
             text.text = property[@"text"];
             UIFont *font = nil;
             if (property[@"font"]) {
@@ -379,7 +379,7 @@
         }
         
         if (includeText) {
-            for (CanvasText *text in _arrSketchOnText) {
+            for (BackgroundText *text in _arrSketchOnText) {
                 [text.text drawInRect: text.drawRect withAttributes: text.attribute];
             }
         }
@@ -388,7 +388,7 @@
         CGContextDrawImage(context, targetRect, _translucentFrozenImage);
         
         if (includeText) {
-            for (CanvasText *text in _arrTextOnSketch) {
+            for (BackgroundText *text in _arrTextOnSketch) {
                 [text.text drawInRect: text.drawRect withAttributes: text.attribute];
             }
         }
@@ -429,7 +429,7 @@
         }
         
         if (includeText) {
-            for (CanvasText *text in _arrSketchOnText) {
+            for (BackgroundText *text in _arrSketchOnText) {
                 [text.text drawInRect: text.drawRect withAttributes: text.attribute];
             }
         }
@@ -438,7 +438,7 @@
         CGContextDrawImage(context, rect, _translucentFrozenImage);
         
         if (includeText) {
-            for (CanvasText *text in _arrTextOnSketch) {
+            for (BackgroundText *text in _arrTextOnSketch) {
                 [text.text drawInRect: text.drawRect withAttributes: text.attribute];
             }
         }

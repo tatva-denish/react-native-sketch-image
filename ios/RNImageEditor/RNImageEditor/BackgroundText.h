@@ -1,5 +1,5 @@
 //
-//  CanvasText.h
+//  BackgroundText.h
 //  RNImageEditor
 //
 //  Created by Luciano D'Agostini on 23.05.19.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-@interface CanvasText : NSObject
+@interface BackgroundText : NSObject
 
 @property (nonatomic) NSString *text;
 @property (nonatomic) UIFont *font;

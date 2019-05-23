@@ -1,5 +1,5 @@
 //
-//  CanvasText.m
+//  BackgroundText.m
 //  RNImageEditor
 //
 //  Created by Luciano D'Agostini on 23.05.19.
@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CanvasText.h"
+#import "BackgroundText.h"
 
-@implementation CanvasText
+@implementation BackgroundText
 @end
