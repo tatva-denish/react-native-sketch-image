@@ -8,18 +8,18 @@
 
 #import "RNImageEditorUtility.h"
 
-CGPoint midPoint (CGPoint p1, CGPoint p2) {
+@implementation RNImageEditorUtility
+
++ (CGPoint)midPoint: (CGPoint)p1 p2:(CGPoint)p2 {
     return CGPointMake((p1.x + p2.x) * 0.5, (p1.y + p2.y) * 0.5);
 }
-
-@implementation RNImageEditorUtility
 
 + (void)addPointToPath: (UIBezierPath*)path
                toPoint: (CGPoint)point
          tertiaryPoint: (CGPoint)tPoint
          previousPoint: (CGPoint) pPoint {
-    CGPoint mid1 = midPoint(pPoint, tPoint);
-    CGPoint mid2 = midPoint(point, pPoint);
+    CGPoint mid1 = [self midPoint:pPoint p2:tPoint];
+    CGPoint mid2 = [self midPoint:point p2:pPoint];
     [path moveToPoint: mid1];
     [path addQuadCurveToPoint: mid2 controlPoint: pPoint];
 }

@@ -84,8 +84,8 @@
             CGPoint a = _points[pointsCount - 3].CGPointValue;
             CGPoint b = _points[pointsCount - 2].CGPointValue;
             CGPoint c = point;
-            CGPoint prevMid = midPoint(a, b);
-            CGPoint currentMid = midPoint(b, c);
+            CGPoint prevMid = [RNImageEditorUtility midPoint:a p2:b];
+            CGPoint currentMid = [RNImageEditorUtility midPoint:b p2:c];
             
             updateRect = CGRectMake(prevMid.x, prevMid.y, 0, 0);
             updateRect = CGRectUnion(updateRect, CGRectMake(b.x, b.y, 0, 0));
@@ -93,7 +93,7 @@
         } else if (pointsCount >= 2) {
             CGPoint a = _points[pointsCount - 2].CGPointValue;
             CGPoint b = point;
-            CGPoint mid = midPoint(a, b);
+            CGPoint mid = [RNImageEditorUtility midPoint:a p2:b];
             
             updateRect = CGRectMake(a.x, a.y, 0, 0);
             updateRect = CGRectUnion(updateRect, CGRectMake(mid.x, mid.y, 0, 0));
@@ -152,8 +152,8 @@
         CGPoint a = _points[pointIndex - 2].CGPointValue;
         CGPoint b = _points[pointIndex - 1].CGPointValue;
         CGPoint c = _points[pointIndex].CGPointValue;
-        CGPoint prevMid = midPoint(a, b);
-        CGPoint currentMid = midPoint(b, c);
+        CGPoint prevMid = [RNImageEditorUtility midPoint:a p2:b];
+        CGPoint currentMid = [RNImageEditorUtility midPoint:b p2:c];
 
         // Draw a curve
         CGContextMoveToPoint(context, prevMid.x, prevMid.y);
@@ -161,7 +161,7 @@
     } else if (pointsCount >= 2 && pointIndex >= 1) {
         CGPoint a = _points[pointIndex - 1].CGPointValue;
         CGPoint b = _points[pointIndex].CGPointValue;
-        CGPoint mid = midPoint(a, b);
+        CGPoint mid = [RNImageEditorUtility midPoint:a p2:b];
 
         // Draw a line to the middle of points a and b
         // This is so the next draw which uses a curve looks correct and continues from there
@@ -188,8 +188,8 @@
             CGPoint a = _points[pointIndex - 2].CGPointValue;
             CGPoint b = _points[pointIndex - 1].CGPointValue;
             CGPoint c = _points[pointIndex].CGPointValue;
-            CGPoint prevMid = midPoint(a, b);
-            CGPoint currentMid = midPoint(b, c);
+            CGPoint prevMid = [RNImageEditorUtility midPoint:a p2:b];
+            CGPoint currentMid = [RNImageEditorUtility midPoint:b p2:c];
             
             // Draw a curve
             [path moveToPoint:prevMid];
@@ -197,7 +197,7 @@
         } else if (pointsCount >= 2 && pointIndex >= 1) {
             CGPoint a = _points[pointIndex - 1].CGPointValue;
             CGPoint b = _points[pointIndex].CGPointValue;
-            CGPoint mid = midPoint(a, b);
+            CGPoint mid = [RNImageEditorUtility midPoint:a p2:b];
             
             // Draw a line to the middle of points a and b
             // This is so the next draw which uses a curve looks correct and continues from there

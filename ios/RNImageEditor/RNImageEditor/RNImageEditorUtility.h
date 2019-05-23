@@ -10,8 +10,6 @@
 #import <UIKit/UIKit.h>
 #import "RNImageEditorData.h"
 
-CGPoint midPoint (CGPoint p1, CGPoint p2);
-
 @interface RNImageEditorUtility : NSObject
 
 + (void)addPointToPath: (UIBezierPath*)path
@@ -23,5 +21,6 @@ CGPoint midPoint (CGPoint p1, CGPoint p2);
 + (BOOL)pointInTriangle:(CGPoint)pt v1: (CGPoint)v1 v2: (CGPoint)v2 v3:(CGPoint)v3;
 + (CGFloat)crossProduct:(CGPoint)a withCGPointB: (CGPoint)b withCGPointC: (CGPoint)c;
 + (CGFloat)crossProduct:(CGFloat)ax ay: (CGFloat)ay bx: (CGFloat)bx by: (CGFloat)by cx: (CGFloat)cx cy: (CGFloat)cy;
++ (CGPoint)midPoint:(CGPoint)p1 p2:(CGPoint)p2;
 
 @end
