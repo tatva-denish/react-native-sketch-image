@@ -4,7 +4,7 @@
 #import <React/RCTEventDispatcher.h>
 #import <React/RCTView.h>
 #import <React/UIView+React.h>
-#import "Utility.h"
+#import "RNImageEditorUtility.h"
 #import "BackgroundText.h"
 #import "entities/base/Enumerations.h"
 #import "entities/base/MotionEntity.h"
@@ -373,7 +373,7 @@
             CGContextSetRGBFillColor(context, 1.0f, 1.0f, 1.0f, 1.0f);
             CGContextFillRect(context, rect);
         }
-        CGRect targetRect = [Utility fillImageWithSize:self.bounds.size toSize:rect.size contentMode:@"AspectFill"];
+        CGRect targetRect = [RNImageEditorUtility fillImageWithSize:self.bounds.size toSize:rect.size contentMode:@"AspectFill"];
         if (includeImage) {
             [_backgroundImage drawInRect:rect];
         }
@@ -424,7 +424,7 @@
             CGContextFillRect(context, rect);
         }
         if (_backgroundImage && includeImage) {
-            CGRect targetRect = [Utility fillImageWithSize:_backgroundImage.size toSize:rect.size contentMode:_backgroundImageContentMode];
+            CGRect targetRect = [RNImageEditorUtility fillImageWithSize:_backgroundImage.size toSize:rect.size contentMode:_backgroundImageContentMode];
             [_backgroundImage drawInRect:targetRect];
         }
         
@@ -505,7 +505,7 @@
     CGContextRef context = CGBitmapContextCreate(NULL, size.width, size.height, 8, 0, colorSpace, kCGImageAlphaPremultipliedLast);
     CGContextClearRect(context, CGRectMake(0, 0, size.width, size.height));
 
-    CGRect targetRect = [Utility fillImageWithSize:originalImage.size toSize:size contentMode:mode];
+    CGRect targetRect = [RNImageEditorUtility fillImageWithSize:originalImage.size toSize:size contentMode:mode];
     CGContextDrawImage(context, targetRect, originalImage.CGImage);
     
     CGImageRef scaledImage = CGBitmapContextCreateImage(context);

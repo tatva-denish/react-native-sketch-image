@@ -16,7 +16,7 @@
 		D7BC84182180814600A275D3 /* MotionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BC84172180814600A275D3 /* MotionEntity.m */; };
 		DE0C99801F32D596001BDE8B /* RNImageEditorData.m in Sources */ = {isa = PBXBuildFile; fileRef = DE0C997F1F32D596001BDE8B /* RNImageEditorData.m */; };
 		DEB694891F322F2A00DC6841 /* RNImageEditorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB694861F322F2A00DC6841 /* RNImageEditorManager.m */; };
-		DED3A13720A4159A00D72FBF /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = DED3A13520A4159A00D72FBF /* Utility.m */; };
+		DED3A13720A4159A00D72FBF /* RNImageEditorUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = DED3A13520A4159A00D72FBF /* RNImageEditorUtility.m */; };
 		DEFBA25D1F322B6000A4545C /* RNImageEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = DEFBA25C1F322B6000A4545C /* RNImageEditor.m */; };
 		DEFBA25E1F322B6000A4545C /* RNImageEditor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = DEFBA25B1F322B6000A4545C /* RNImageEditor.h */; };
 /* End PBXBuildFile section */
@@ -54,8 +54,8 @@
 		DE0C997F1F32D596001BDE8B /* RNImageEditorData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNImageEditorData.m; sourceTree = "<group>"; };
 		DEB694851F322F2A00DC6841 /* RNImageEditorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNImageEditorManager.h; sourceTree = "<group>"; };
 		DEB694861F322F2A00DC6841 /* RNImageEditorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNImageEditorManager.m; sourceTree = "<group>"; };
-		DED3A13520A4159A00D72FBF /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
-		DED3A13620A4159A00D72FBF /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
+		DED3A13520A4159A00D72FBF /* RNImageEditorUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNImageEditorUtility.m; sourceTree = "<group>"; };
+		DED3A13620A4159A00D72FBF /* RNImageEditorUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNImageEditorUtility.h; sourceTree = "<group>"; };
 		DEFBA2581F322B6000A4545C /* libRNImageEditor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNImageEditor.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEFBA25B1F322B6000A4545C /* RNImageEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNImageEditor.h; sourceTree = "<group>"; };
 		DEFBA25C1F322B6000A4545C /* RNImageEditor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNImageEditor.m; sourceTree = "<group>"; };
@@ -126,8 +126,8 @@
 				DEFBA25C1F322B6000A4545C /* RNImageEditor.m */,
 				DE0C997E1F32D596001BDE8B /* RNImageEditorData.h */,
 				DE0C997F1F32D596001BDE8B /* RNImageEditorData.m */,
-				DED3A13620A4159A00D72FBF /* Utility.h */,
-				DED3A13520A4159A00D72FBF /* Utility.m */,
+				DED3A13620A4159A00D72FBF /* RNImageEditorUtility.h */,
+				DED3A13520A4159A00D72FBF /* RNImageEditorUtility.m */,
 				D70446F422968240007BBE77 /* BackgroundText.h */,
 				D70446F5229682C5007BBE77 /* BackgroundText.m */,
 			);
@@ -194,7 +194,7 @@
 			files = (
 				DEFBA25D1F322B6000A4545C /* RNImageEditor.m in Sources */,
 				8579D13721889DE500773C27 /* TextEntity.m in Sources */,
-				DED3A13720A4159A00D72FBF /* Utility.m in Sources */,
+				DED3A13720A4159A00D72FBF /* RNImageEditorUtility.m in Sources */,
 				85C9F6F2218879DB00BD64B4 /* RectEntity.m in Sources */,
 				DE0C99801F32D596001BDE8B /* RNImageEditorData.m in Sources */,
 				D70446F6229682C5007BBE77 /* BackgroundText.m in Sources */,
