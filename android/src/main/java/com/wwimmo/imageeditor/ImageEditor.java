@@ -139,7 +139,7 @@ public class ImageEditor extends View {
         if (mBackgroundImage != null && cropToImageSize) {
             Rect targetRect = new Rect();
             Utility.fillImage(mDrawingBitmap.getWidth(), mDrawingBitmap.getHeight(),
-                    bitmap.getWidth(), bitmap.getHeight(), "AspectFill").roundOut(targetRect);
+                    bitmap.getWidth(), bitmap.getHeight(), mBitmapContentMode).roundOut(targetRect);
             canvas.drawBitmap(mDrawingBitmap, null, targetRect, mPaint);
         } else {
             canvas.drawBitmap(mDrawingBitmap, 0, 0, mPaint);
