@@ -76,6 +76,14 @@
     return self;
 }
 
+- (void)dealloc {
+    CGContextRelease(_drawingContext);
+    _drawingContext = nil;
+    CGImageRelease(_frozenImage);
+    _frozenImage = nil;
+}
+
+
 // Make multiple GestureRecognizers work
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
     return TRUE;
