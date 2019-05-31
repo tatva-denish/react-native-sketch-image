@@ -130,7 +130,7 @@ class ImageEditor extends React.Component {
     clear() {
         this._paths = [];
         this._path = null;
-        UIManager.dispatchViewManagerCommand(this._handle, UIManager.RNImageEditor.Commands.clear, []);
+        UIManager.dispatchViewManagerCommand(this._handle, UIManager.getViewManagerConfig(RNImageEditor).Commands.clear, []);
     }
 
     undo() {
@@ -150,7 +150,7 @@ class ImageEditor extends React.Component {
                     this._size.height) /
                     data.size.height}`;
             });
-            UIManager.dispatchViewManagerCommand(this._handle, UIManager.RNImageEditor.Commands.addPath, [
+            UIManager.dispatchViewManagerCommand(this._handle, UIManager.getViewManagerConfig(RNImageEditor).Commands.addPath, [
                 data.path.id,
                 processColor(data.path.color),
                 data.path.width * this._screenScale,
@@ -164,13 +164,13 @@ class ImageEditor extends React.Component {
 
     deletePath(id) {
         this._paths = this._paths.filter((p) => p.path.id !== id);
-        UIManager.dispatchViewManagerCommand(this._handle, UIManager.RNImageEditor.Commands.deletePath, [id]);
+        UIManager.dispatchViewManagerCommand(this._handle, UIManager.getViewManagerConfig(RNImageEditor).Commands.deletePath, [id]);
     }
 
     addShape(config) {
         if (config) {
             let fontSize = config.textShapeFontSize ? config.textShapeFontSize : 0;
-            UIManager.dispatchViewManagerCommand(this._handle, UIManager.RNImageEditor.Commands.addShape, [
+            UIManager.dispatchViewManagerCommand(this._handle, UIManager.getViewManagerConfig(RNImageEditor).Commands.addShape, [
                 config.shapeType,
                 config.textShapeFontType,
                 fontSize,
@@ -181,23 +181,23 @@ class ImageEditor extends React.Component {
     }
 
     deleteSelectedShape() {
-        UIManager.dispatchViewManagerCommand(this._handle, UIManager.RNImageEditor.Commands.deleteSelectedShape, []);
+        UIManager.dispatchViewManagerCommand(this._handle, UIManager.getViewManagerConfig(RNImageEditor).Commands.deleteSelectedShape, []);
     }
 
     increaseSelectedShapeFontsize() {
-        UIManager.dispatchViewManagerCommand(this._handle, UIManager.RNImageEditor.Commands.increaseShapeFontsize, []);
+        UIManager.dispatchViewManagerCommand(this._handle, UIManager.getViewManagerConfig(RNImageEditor).Commands.increaseShapeFontsize, []);
     }
 
     decreaseSelectedShapeFontsize() {
-        UIManager.dispatchViewManagerCommand(this._handle, UIManager.RNImageEditor.Commands.decreaseShapeFontsize, []);
+        UIManager.dispatchViewManagerCommand(this._handle, UIManager.getViewManagerConfig(RNImageEditor).Commands.decreaseShapeFontsize, []);
     }
 
     changeSelectedShapeText(newText) {
-        UIManager.dispatchViewManagerCommand(this._handle, UIManager.RNImageEditor.Commands.changeShapeText, [newText]);
+        UIManager.dispatchViewManagerCommand(this._handle, UIManager.getViewManagerConfig(RNImageEditor).Commands.changeShapeText, [newText]);
     }
 
     save(imageType, transparent, folder, filename, includeImage, includeText, cropToImageSize) {
-        UIManager.dispatchViewManagerCommand(this._handle, UIManager.RNImageEditor.Commands.save, [
+        UIManager.dispatchViewManagerCommand(this._handle, UIManager.getViewManagerConfig(RNImageEditor).Commands.save, [
             imageType,
             folder,
             filename,
@@ -255,12 +255,12 @@ class ImageEditor extends React.Component {
                     data: []
                 };
 
-                UIManager.dispatchViewManagerCommand(this._handle, UIManager.RNImageEditor.Commands.newPath, [
+                UIManager.dispatchViewManagerCommand(this._handle, UIManager.getViewManagerConfig(RNImageEditor).Commands.newPath, [
                     this._path.id,
                     processColor(this._path.color),
                     this._path.width * this._screenScale
                 ]);
-                UIManager.dispatchViewManagerCommand(this._handle, UIManager.RNImageEditor.Commands.addPoint, [
+                UIManager.dispatchViewManagerCommand(this._handle, UIManager.getViewManagerConfig(RNImageEditor).Commands.addPoint, [
                     parseFloat((gestureState.x0 - this._offset.x).toFixed(2) * this._screenScale),
                     parseFloat((gestureState.y0 - this._offset.y).toFixed(2) * this._screenScale),
                     false
@@ -280,7 +280,7 @@ class ImageEditor extends React.Component {
                         y = parseFloat(
                             (gestureState.y0 + gestureState.dy / this.props.scale - this._offset.y).toFixed(2)
                         );
-                    UIManager.dispatchViewManagerCommand(this._handle, UIManager.RNImageEditor.Commands.addPoint, [
+                    UIManager.dispatchViewManagerCommand(this._handle, UIManager.getViewManagerConfig(RNImageEditor).Commands.addPoint, [
                         parseFloat(x * this._screenScale),
                         parseFloat(y * this._screenScale),
                         true
@@ -295,7 +295,7 @@ class ImageEditor extends React.Component {
                     this.props.onStrokeEnd({ path: this._path, size: this._size, drawer: this.props.user });
                     this._paths.push({ path: this._path, size: this._size, drawer: this.props.user });
                 }
-                UIManager.dispatchViewManagerCommand(this._handle, UIManager.RNImageEditor.Commands.endPath, []);
+                UIManager.dispatchViewManagerCommand(this._handle, UIManager.getViewManagerConfig(RNImageEditor).Commands.endPath, []);
             },
 
             onShouldBlockNativeResponder: (evt, gestureState) => {
@@ -351,9 +351,9 @@ class ImageEditor extends React.Component {
     }
 }
 
-ImageEditor.MAIN_BUNDLE = Platform.OS === "ios" ? UIManager.RNImageEditor.Constants.MainBundlePath : "";
-ImageEditor.DOCUMENT = Platform.OS === "ios" ? UIManager.RNImageEditor.Constants.NSDocumentDirectory : "";
-ImageEditor.LIBRARY = Platform.OS === "ios" ? UIManager.RNImageEditor.Constants.NSLibraryDirectory : "";
-ImageEditor.CACHES = Platform.OS === "ios" ? UIManager.RNImageEditor.Constants.NSCachesDirectory : "";
+ImageEditor.MAIN_BUNDLE = Platform.OS === "ios" ? UIManager.getViewManagerConfig(RNImageEditor).Constants.MainBundlePath : "";
+ImageEditor.DOCUMENT = Platform.OS === "ios" ? UIManager.getViewManagerConfig(RNImageEditor).Constants.NSDocumentDirectory : "";
+ImageEditor.LIBRARY = Platform.OS === "ios" ? UIManager.getViewManagerConfig(RNImageEditor).Constants.NSLibraryDirectory : "";
+ImageEditor.CACHES = Platform.OS === "ios" ? UIManager.getViewManagerConfig(RNImageEditor).Constants.NSCachesDirectory : "";
 
 module.exports = ImageEditor;
