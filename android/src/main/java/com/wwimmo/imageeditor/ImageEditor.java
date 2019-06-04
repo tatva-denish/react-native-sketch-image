@@ -844,9 +844,11 @@ public class ImageEditor extends View {
             }
         }
         if (toRemoveEntity != null) {
+            toRemoveEntity.setIsSelected(false);
             if (mEntities.remove(toRemoveEntity)) {
                 toRemoveEntity.release();
                 toRemoveEntity = null;
+                mSelectedEntity = toRemoveEntity;
                 onShapeSelectionChanged(toRemoveEntity);
                 invalidateCanvas(true);
             }
