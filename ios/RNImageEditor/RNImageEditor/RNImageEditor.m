@@ -382,6 +382,7 @@
             CGContextFillRect(context, rect);
         }
         CGRect targetRect = [RNImageEditorUtility fillImageWithSize:self.bounds.size toSize:rect.size contentMode:@"AspectFill"];
+        CGFloat scaleFactor = [RNImageEditorUtility getScaleDifference:self.bounds.size toSize:rect.size contentMode:@"AspectFill"];
         if (includeImage) {
             [_backgroundImage drawInRect:rect];
         }
@@ -403,6 +404,9 @@
         
         for (MotionEntity *entity in self.motionEntities) {
             CGContextSaveGState(context);
+            
+            // Scale shapes because we cropToImageSize
+            CGContextScaleCTM(context, scaleFactor, scaleFactor);
             
             // Center the context around the view's anchor point
             CGContextTranslateCTM(context, [entity center].x, [entity center].y);

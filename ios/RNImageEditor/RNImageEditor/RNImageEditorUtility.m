@@ -56,6 +56,26 @@
         }
     }
 }
+    
++ (CGFloat)getScaleDifference:(CGSize)imgSize toSize:(CGSize)targetSize contentMode:(NSString*)mode {
+    CGFloat imageAspectRatio = imgSize.width / imgSize.height;
+    CGFloat targetAspectRatio = targetSize.width / targetSize.height;
+    switch ([@[@"AspectFill", @"AspectFit", @"ScaleToFill"] indexOfObject: mode]) {
+        case 0: {
+            CGFloat scaleFactor = targetAspectRatio < imageAspectRatio ? targetSize.height / imgSize.height : targetSize.width / imgSize.width;
+            return scaleFactor;
+        }
+        case 1:
+        case NSNotFound:
+        default: {
+            CGFloat scaleFactor = targetAspectRatio > imageAspectRatio ? targetSize.height / imgSize.height : targetSize.width / imgSize.width;
+            return scaleFactor;
+        }
+        case 2: {
+            return 1.0f;
+        }
+    }
+}
 
 + (BOOL)pointInTriangle:(CGPoint)pt v1: (CGPoint)v1 v2: (CGPoint)v2 v3:(CGPoint)v3 {
     bool b1 = [self crossProduct:pt withCGPointB:v1 withCGPointC:v2] < 0.0;
