@@ -95,7 +95,9 @@ class ImageEditor extends React.Component {
         localSourceImage: null,
 
         permissionDialogTitle: "",
-        permissionDialogMessage: ""
+        permissionDialogMessage: "",
+
+        defaultPaths: [],
     };
 
     state = {
@@ -104,7 +106,7 @@ class ImageEditor extends React.Component {
 
     constructor(props) {
         super(props);
-        this._pathsToProcess = [];
+        this._pathsToProcess = this.props.defaultPaths || [];
         this._paths = [];
         this._path = null;
         this._handle = null;
