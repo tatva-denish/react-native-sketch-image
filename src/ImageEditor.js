@@ -301,7 +301,7 @@ class ImageEditor extends React.Component {
             },
 
             onShouldBlockNativeResponder: (evt, gestureState) => {
-                return true;
+                return this.props.touchEnabled;
             }
         });
     }
