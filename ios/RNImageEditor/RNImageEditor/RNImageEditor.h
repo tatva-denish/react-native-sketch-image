@@ -34,6 +34,7 @@
 - (void)setShapeConfiguration:(NSDictionary *)dict;
 - (void)addEntity:(NSString *)entityType textShapeFontType: (NSString *)textShapeFontType textShapeFontSize: (NSNumber *)textShapeFontSize textShapeText: (NSString *)textShapeText imageShapeAsset: (NSString *)imageShapeAsset;
 - (void)releaseSelectedEntity;
+- (void)unselectShape;
 - (void)increaseTextEntityFontSize;
 - (void)decreaseTextEntityFontSize;
 - (void)setTextEntityText:(NSString *)newText;

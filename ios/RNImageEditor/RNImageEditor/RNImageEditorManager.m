@@ -137,6 +137,13 @@ RCT_EXPORT_METHOD(deleteSelectedShape:(nonnull NSNumber *)reactTag)
     }];
 }
 
+RCT_EXPORT_METHOD(unselectShape:(nonnull NSNumber *)reactTag)
+{
+    [self runCanvas:reactTag block:^(RNImageEditor *canvas) {
+        [canvas unselectShape];
+    }];
+}
+
 RCT_EXPORT_METHOD(addShape:(nonnull NSNumber *)reactTag shapeType:(NSString *) shapeType textShapeFontType:(NSString *) textShapeFontType textShapeFontSize:(nonnull NSNumber *) textShapeFontSize textShapeText:(NSString *) textShapeText imageShapeAsset:(NSString *)imageShapeAsset)
 {
     [self runCanvas:reactTag block:^(RNImageEditor *canvas) {

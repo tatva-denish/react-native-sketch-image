@@ -796,6 +796,10 @@
     }
 }
 
+- (void)unselectShape {
+    [self selectEntity:nil];
+}
+
 - (void)increaseTextEntityFontSize {
     TextEntity *textEntity = [self getSelectedTextEntity];
     if (textEntity) {
