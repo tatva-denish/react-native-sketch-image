@@ -118,6 +118,7 @@ export class ImageEditor extends React.Component<ImageEditorProps & ViewProperti
     deletePath(id: number): void;
     addShape(config: AddShapeConfig): void;
     deleteSelectedShape(): void;
+    unselectShape(): void;
     increaseSelectedShapeFontsize(): void;
     decreaseSelectedShapeFontsize(): void;
     changeSelectedShapeText(newText: String): void;
@@ -236,6 +237,7 @@ export default class RNImageEditor extends React.Component<RNImageEditorProps & 
     deletePath(id: number): void;
     addShape(config: AddShapeConfig): void;
     deleteSelectedShape(): void;
+    unselectShape(): void;
     increaseSelectedShapeFontsize(): void;
     decreaseSelectedShapeFontsize(): void;
     changeSelectedShapeText(newText: String): void;

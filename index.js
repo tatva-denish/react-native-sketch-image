@@ -172,6 +172,10 @@ export default class RNImageEditor extends React.Component {
         this._sketchCanvas.deleteSelectedShape();
     }
 
+    unselectShape() {
+        this._sketchCanvas.unselectShape();
+    }
+
     addShape(config) {
         this._sketchCanvas.addShape(config);
     }

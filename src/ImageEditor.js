@@ -209,6 +209,14 @@ class ImageEditor extends React.Component {
         );
     }
 
+    unselectShape() {
+        UIManager.dispatchViewManagerCommand(
+            this._handle,
+            UIManager.getViewManagerConfig(RNImageEditor).Commands.unselectShape,
+            []
+        );
+    }
+
     increaseSelectedShapeFontsize() {
         UIManager.dispatchViewManagerCommand(
             this._handle,

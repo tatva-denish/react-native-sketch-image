@@ -855,6 +855,10 @@ public class ImageEditor extends View {
         }
     }
 
+    public void unselectShape() {
+        selectEntity(null);
+    }
+
     public void increaseTextEntityFontSize() {
         TextEntity textEntity = getSelectedTextEntity();
         if (textEntity != null) {
