@@ -44,11 +44,11 @@ Features
 
 ## Installation
 -------------
-Install from `npm` (only support RN >= 0.40)
+Install with yarn
 ```bash
-npm install @wwimmo/react-native-sketch-canvas --save
+yarn add https://github.com/wwimmo/react-native-sketch-canvas.git
 ```
-Link native code
+Link native code (only required for RN below 0.60)
 ```bash
 react-native link @wwimmo/react-native-sketch-canvas
 ```
