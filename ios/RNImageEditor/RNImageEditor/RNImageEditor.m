@@ -319,7 +319,6 @@
         [data drawInContext:_drawingContext];
         [self setFrozenImageNeedsUpdate];
         [self setNeedsDisplay];
-        [self notifyPathsUpdate];
     }
 }
 
@@ -362,6 +361,7 @@
         [_currentPath drawInContext:_drawingContext];
     }
     _currentPath = nil;
+    [self notifyPathsUpdate];
 }
 
 - (void) clear {
