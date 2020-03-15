@@ -1,5 +1,6 @@
 package com.wwimmo.imageeditor;
 
+import android.content.Context;
 import android.graphics.Typeface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -10,8 +11,14 @@ import android.graphics.PointF;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.Matrix;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.VectorDrawable;
 import android.media.ExifInterface;
 import android.os.Environment;
+import android.support.annotation.DrawableRes;
+import android.support.graphics.drawable.VectorDrawableCompat;
+import android.support.v7.content.res.AppCompatResources;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -460,7 +467,7 @@ public class ImageEditor extends View {
                     mContext.getPackageName());
             BitmapFactory.Options bitmapOptions = new BitmapFactory.Options();
             Bitmap bitmap = null;
-            
+
             try {
                 if (res == 0) {
                     String convertedDirectory = directory == null ? "" : directory;
@@ -479,7 +486,7 @@ public class ImageEditor extends View {
                         bitmap = tempBitmap;
                     }
                 } else {
-                    bitmap = BitmapFactory.decodeResource(mContext.getResources(), res);
+                    bitmap = getBitmapFromDrawable(mContext, res);
                 }
             } catch (Exception e) {
                 Log.e("SKETCHCANVAS", "exception in openImageFile when creating ExifInterface: " + e);
@@ -498,6 +505,23 @@ public class ImageEditor extends View {
             }
         }
         return false;
+    }
+
+    public static Bitmap getBitmapFromDrawable(Context context, @DrawableRes int drawableId) {
+        Drawable drawable = AppCompatResources.getDrawable(context, drawableId);
+
+        if (drawable instanceof BitmapDrawable) {
+            return ((BitmapDrawable) drawable).getBitmap();
+        } else if (drawable instanceof VectorDrawableCompat || drawable instanceof VectorDrawable) {
+            Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(bitmap);
+            drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+            drawable.draw(canvas);
+
+            return bitmap;
+        } else {
+            throw new IllegalArgumentException("unsupported drawable type");
+        }
     }
 
     public void setCanvasText(ReadableArray aText) {
@@ -622,7 +646,7 @@ public class ImageEditor extends View {
                 break;
         }
     }
-    
+
     protected void addCircleEntity() {
         Layer circleLayer = new Layer();
         CircleEntity circleEntity = null;
@@ -784,7 +808,7 @@ public class ImageEditor extends View {
         if (mSelectedEntity != null) {
             float newCenterX = mSelectedEntity.absoluteCenterX() + delta.x;
             float newCenterY = mSelectedEntity.absoluteCenterY() + delta.y;
-            
+
             // limit entity center to screen bounds
             boolean needUpdateUI = false;
             if (newCenterX >= 0 && newCenterX <= getWidth()) {
@@ -917,7 +941,7 @@ public class ImageEditor extends View {
                 mMoveGestureDetector.onTouchEvent(event);
                 return true;
             } else {
-              return false;
+                return false;
             }
         }
     };
