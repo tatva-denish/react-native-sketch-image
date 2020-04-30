@@ -144,11 +144,13 @@ public class ImageEditor extends View {
         }
 
         if (mBackgroundImage != null && cropToImageSize) {
+			drawAllEntities(mDrawingCanvas);
             Rect targetRect = new Rect();
             Utility.fillImage(mDrawingBitmap.getWidth(), mDrawingBitmap.getHeight(),
                     bitmap.getWidth(), bitmap.getHeight(), "AspectFill").roundOut(targetRect);
             canvas.drawBitmap(mDrawingBitmap, null, targetRect, mPaint);
         } else {
+			drawAllEntities(mDrawingCanvas);
             canvas.drawBitmap(mDrawingBitmap, 0, 0, mPaint);
         }
 
@@ -157,9 +159,6 @@ public class ImageEditor extends View {
                 canvas.drawText(text.text, text.drawPosition.x + text.lineOffset.x, text.drawPosition.y + text.lineOffset.y, text.paint);
             }
         }
-
-        drawAllEntities(canvas);
-
         return bitmap;
     }
 
