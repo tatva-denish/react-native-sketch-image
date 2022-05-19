@@ -46,7 +46,7 @@ Features
 -------------
 Install with yarn
 ```bash
-yarn add https://github.com/wwimmo/react-native-sketch-canvas.git
+yarn add https://github.com/tatva-denish/react-native-sketch-image.git
 ```
 Link native code (only required for RN below 0.60)
 ```bash
