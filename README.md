@@ -50,7 +50,7 @@ yarn add https://github.com/tatva-denish/react-native-sketch-image.git
 ```
 Link native code (only required for RN below 0.60)
 ```bash
-react-native link @wwimmo/react-native-sketch-canvas
+react-native link @@tatva-denish/react-native-sketch-canvas
 ```
 
 ## Usage
